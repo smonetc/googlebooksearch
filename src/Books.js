@@ -17,14 +17,15 @@ class Books extends Component{
         fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.searchField}&key=${api_key}`)
         .then(response => response.json())
         .then(data => 
-            this.setState({books:[data.body.items]}))
+            {   console.log(data);
+                this.setState({books:[data.body.items]})})
         .catch(err => {
             console.log(err)
         });
     }
 
     handleSearch = (e)=> {
-        console.log(e.target.value)
+     
         this.setState({searchField: e.target.value})
     }
 
