@@ -1,23 +1,26 @@
 import React from 'react'
-import Bookcard from './Bookcard'
+import './App.css'
 
-const Booklist = (props) => {
+
+ function Booklist (props) {
 	return(
 		<div className='list'>
-            {
-                props.books.map((book,i)=>{
-                    return <Bookcard 
-                    key={i}
-                    image={book.volumeInfo.imageLinks.thumbnail}
-                    title={book.volumeInfo.title}
-                    authur={book.volumeInfo.authors}
-                    price={book.volumeInfo.retailPrice.amount}
-                    description={book.volumeInfo.description}
-                    />
-                })
-            }
+            <div className='book-info'>
+                <div className='description'>
+                    <h3>{props.books.volumeInfo.title}</h3>
+                    <p>Author: {' '} {props.books.volumeInfo.authors}</p>
+                    <p>${props.books.volumeInfo.saleInfo}</p> 
+                    <p>{props.books.volumeInfo.description}</p>
+                </div>
+                <div className='img-section'>
+                    <img src={props.books.volumeInfo.imageLinks.thumbnail} />
+                </div>
+            </div>
+            <hr />
 		</div>
 	)
 }
+
+//figure out how to resolve the price issue
 
 export default Booklist;
