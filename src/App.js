@@ -5,14 +5,12 @@ import Booklist from './Booklist'
 import './App.css'
 
 class App extends Component{
-  constructor(props){
-      super(props);
-      this.state = {
+
+  state = {
           books: [],
           error: null,
-          // dataLoaded: false
       }
-  }
+  
   searchBooks = (search, printType, bookType) => {
       const api_key = 'AIzaSyAwJufUZkG0V-2P8OSVpB_AjpF23lPxtts'
       const url = (bookType) ? 
@@ -30,7 +28,6 @@ class App extends Component{
           { 
           books: data.items,
           error:null,
-          // dataLoaded: true
         })
         )
       .catch(err => {
